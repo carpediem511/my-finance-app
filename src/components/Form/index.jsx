@@ -41,60 +41,65 @@ const ExpensesForm = () => {
 	return (
 		<>
 
-			<form>
-				<div className="w-1/3 my-10 flex flex-col gap-y-4 mx-auto">
-					<h2 className="font-bold text-2xl text-teal-500 mt-10">
+			<form className="w-1/5 px-4 my-1">
+				<div className="my-10 flex flex-col gap-y-4 w-full bg-slate-200 rounded">
+					<h2 className="text-4xl pt-8 pb-8 text-center font-['Caveat']">
 						Ваши траты по категориям
 					</h2>
-					<div className="flex flex-col text-lg font-medium">
-						<label>Категория</label>
-						<Select
-							options={categories}
-							onChange={(event) =>
-								setChooseCategory(event.target.value)
-							}
-							className="mt-1 py-2 focus:border-2"
-						>
-							<option disabled>Выбрать категорию</option>
-							{categories.map((category) => (
-								<option key={category}>{category}</option>
-							))}
-						</Select>
-					</div>
-					<div className="flex flex-col text-lg font-medium">
-						<label>Месяц покупки</label>
-						<Select
-							options={months}
-							onChange={(event) =>
-								setChooseMonth(event.target.value)
-							}
-							className="mt-1 py-2 focus:border-2"
-						>
-							{months.map((month) => (
-								<option key={month}>{month}</option>
-							))}
-						</Select>
-					</div>
-					<div className=" mb-1 flex flex-col text-lg font-medium">
-						<label>Ввести сумму</label>
-						<input
-							name="enterAmount"
-							value={enterAmount}
-							onChange={(event) =>
-								setEnterAmount(event.target.value)
-							}
-							type="text"
-							className="border border-solid rounded outline-none border-gray-300 px-2 py-2 focus:border-2 w-5/12 focus:border-sky-500"
-						/>
-					</div>
 
+					<div className="px-4">
+						<div className="flex flex-col text-lg font-medium">
+							<label className="font-semibold">Категория</label>
+							<Select
+								options={categories}
+								onChange={(event) =>
+									setChooseCategory(event.target.value)
+								}
+								className="mt-1 py-2 focus:border-2 rounded-md"
+							>
+
+								{categories.map((category) => (
+									<option key={category}>{category}</option>
+								))}
+							</Select>
+						</div>
+						<div className="flex flex-col text-lg font-medium">
+							<label className="font-semibold">Месяц покупки</label>
+							<Select
+								options={months}
+								onChange={(event) =>
+									setChooseMonth(event.target.value)
+								}
+								className="mt-1 py-2 focus:border-2 rounded-md"
+							>
+								{months.map((month) => (
+									<option key={month}>{month}</option>
+								))}
+							</Select>
+						</div>
+
+
+						<div className="mb-1 flex flex-col text-lg font-medium w-full">
+							<label className="font-semibold">Ввести сумму</label>
+							<input
+								name="enterAmount"
+								value={enterAmount}
+								onChange={(event) =>
+									setEnterAmount(event.target.value)
+								}
+								type="text"
+								className="border mt-1 mb-8 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 w-1/2 focus:border-sky-500"
+							/>
+						</div>
+					</div>
 					<ButtonAdd
 						title="Добавить"
 						type="submit"
+
 					//addNewSpending={addNewSpending}
 					/>
-				</div>
 
+				</div>
 
 			</form>
 
