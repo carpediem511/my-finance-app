@@ -32,18 +32,7 @@ const ExpensesForm = () => {
 	const [chooseCategory, setChooseCategory] = useState(categories[0])
 	const [chooseMonth, setChooseMonth] = useState(months[0])
 
-	const addNewSpending = event => {
-		event.preventDefault()
-		const newSpending = {
-			chooseCategory,
-			chooseMonth,
-			enterAmount
-		}
-		/*	
-	
-			const newSpending = [chooseCategory, chooseMonth, enterAmount]*/
-		console.log(addNewSpending);
-	}
+
 
 	return (
 		<>

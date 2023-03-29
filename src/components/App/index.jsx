@@ -56,6 +56,16 @@ function App() {
 
 	])
 
+	const addNewSpending = (newSpending) => {
+		event.preventDefault()
+		const newSpending = {
+			chooseCategory,
+			chooseMonth,
+			enterAmount
+		}
+
+	}
+
 	return (
 		<>
 			<Header />
