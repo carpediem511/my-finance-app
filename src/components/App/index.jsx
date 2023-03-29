@@ -57,12 +57,8 @@ function App() {
 	])
 
 	const addNewSpending = (newSpending) => {
-		event.preventDefault()
-		const newSpending = {
-			chooseCategory,
-			chooseMonth,
-			enterAmount
-		}
+
+		setPurchases([...purchases, newSpending])
 
 	}
 
@@ -78,7 +74,7 @@ function App() {
 			</div>
 			<div className='flex justify-evenly px-28 mt-20 bg-amber-100'>
 
-				<ExpensesForm />
+				<ExpensesForm addNewSpending={addNewSpending} />
 
 				<div className='w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto shadow-md'>
 					<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>Последние операции:</h2>

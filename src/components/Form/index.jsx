@@ -26,13 +26,22 @@ const categories = [
 	{ value: 'entertainment', label: 'Развлечения' }
 ]
 
-const ExpensesForm = () => {
+const ExpensesForm = ({ addNewSpending }) => {
 	const [enterAmount, setEnterAmount] = useState("")
 
 	const [chooseCategory, setChooseCategory] = useState(categories[0])
 	const [chooseMonth, setChooseMonth] = useState(months[0])
 
+	const AddPurchaseFunction = event => {
 
+		event.preventDefault()
+
+		const purchase = {
+			chooseCategory,
+			chooseMonth,
+			enterAmount
+		}
+	}
 
 	return (
 		<>
@@ -93,6 +102,7 @@ const ExpensesForm = () => {
 					<ButtonAdd
 						title="Добавить"
 						type="submit"
+						AddPurchaseFunction={AddPurchaseFunction}
 
 						addNewSpending={addNewSpending}
 					/>
