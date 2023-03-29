@@ -31,12 +31,19 @@ const ExpensesForm = () => {
 
 	const [chooseCategory, setChooseCategory] = useState(categories[0])
 	const [chooseMonth, setChooseMonth] = useState(months[0])
-	/*
-		const addNewSpending = (event) => {
-			event.preventDefault()
+
+	const addNewSpending = event => {
+		event.preventDefault()
+		const newSpending = {
+			chooseCategory,
+			chooseMonth,
+			enterAmount
+		}
+		/*	
 	
-			const newSpending = [chooseCategory, chooseMonth, enterAmount]
-		}*/
+			const newSpending = [chooseCategory, chooseMonth, enterAmount]*/
+		console.log(addNewSpending);
+	}
 
 	return (
 		<>
@@ -52,6 +59,7 @@ const ExpensesForm = () => {
 							<label className="font-semibold">Выбрать категорию</label>
 							<Select
 								options={categories}
+								value={chooseCategory}
 								onChange={(event) =>
 									setChooseCategory(event.target.value)
 								}
@@ -67,6 +75,7 @@ const ExpensesForm = () => {
 							<label className="font-semibold mt-4 mb-1">Выбрать месяц покупки</label>
 							<Select
 								options={months}
+								value={chooseMonth}
 								onChange={(event) =>
 									setChooseMonth(event.target.value)
 								}
@@ -96,7 +105,7 @@ const ExpensesForm = () => {
 						title="Добавить"
 						type="submit"
 
-					//addNewSpending={addNewSpending}
+						addNewSpending={addNewSpending}
 					/>
 
 				</div>

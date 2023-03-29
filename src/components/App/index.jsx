@@ -2,7 +2,7 @@ import Header from 'components/Header';
 /*import "./styles.css"*/
 import { useState } from 'react';
 import uuid4 from 'uuid4';
-import OnePurchase from 'components/OnePurchase';
+import RecentPurchases from 'components/RecentPurchases';
 import Footer from 'components/Footer';
 import ExpensesForm from 'components/Form';
 
@@ -75,7 +75,7 @@ function App() {
 					{purchases.map((purchase) => {
 
 						return (
-							<OnePurchase purchase={purchase} key={purchase.id} />
+							<RecentPurchases purchase={purchase} key={purchase.id} />
 						)
 					})}
 				</div>

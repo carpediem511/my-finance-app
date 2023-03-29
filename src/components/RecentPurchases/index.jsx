@@ -1,4 +1,4 @@
-const OnePurchase = (props) => {
+const RecentPurchases = (props) => { //шаблон для одной покупки
 	const { purchase } = props
 	return (
 		<>
@@ -18,4 +18,4 @@ const OnePurchase = (props) => {
 	)
 }
 
-export default OnePurchase
+export default RecentPurchases
