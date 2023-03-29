@@ -56,9 +56,9 @@ function App() {
 
 	])
 
-	const addNewSpending = (newSpending) => {
+	const addNewSpending = (purchase) => {
 
-		setPurchases([...purchases, newSpending])
+		setPurchases([...purchases, purchase])
 
 	}
 
@@ -69,12 +69,12 @@ function App() {
 				<h1 className="w-1/2 pl-28 pt-48 font-['Caveat'] text-8xl text-indigo-700 justify-center">
 					Деньги работают на Вас вместе с нами!
 				</h1>
-				<img src="./images/hero.png" className="w-1/2" />
+				<img src="./images/hero.png" className="w-1/2" alt='' />
 
 			</div>
 			<div className='flex justify-evenly px-28 mt-20 bg-amber-100'>
 
-				<ExpensesForm addNewSpending={addNewSpending} />
+				<ExpensesForm addNewSpending={addNewSpending} key={addNewSpending.id} />
 
 				<div className='w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto shadow-md'>
 					<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>Последние операции:</h2>

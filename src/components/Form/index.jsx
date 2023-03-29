@@ -40,7 +40,10 @@ const ExpensesForm = ({ addNewSpending }) => {
 			chooseCategory,
 			chooseMonth,
 			enterAmount
+
+
 		}
+		addNewSpending(purchase)
 	}
 
 	return (
@@ -104,7 +107,7 @@ const ExpensesForm = ({ addNewSpending }) => {
 						type="submit"
 						AddPurchaseFunction={AddPurchaseFunction}
 
-						addNewSpending={addNewSpending}
+
 					/>
 
 				</div>
