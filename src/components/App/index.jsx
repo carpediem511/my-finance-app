@@ -1,11 +1,12 @@
 import Header from 'components/Header';
-import "./styles.css"
+/*import "./styles.css"*/
 import { useState } from 'react';
 import uuid4 from 'uuid4';
 import OnePurchase from 'components/OnePurchase';
 import Footer from 'components/Footer';
 import ExpensesForm from 'components/Form';
-import PersonalInfo from 'components/PersonalInfo';
+
+
 
 function App() {
 
@@ -58,22 +59,27 @@ function App() {
 	return (
 		<>
 			<Header />
-			<div className='flex justify-center'>
-				<PersonalInfo />
+			<div className="flex mt-20">
+				<h1 className="w-1/2 pl-28 pt-48 font-['Caveat'] text-8xl text-indigo-700 justify-center">
+					Деньги работают на Вас вместе с нами!
+				</h1>
+				<img src="./images/hero.png" className="w-1/2" />
+
+			</div>
+			<div className='flex justify-evenly px-28 mt-20 bg-amber-100'>
+
 				<ExpensesForm />
 
+				<div className='w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto shadow-md'>
+					<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>Последние операции:</h2>
+					{purchases.map((purchase) => {
+
+						return (
+							<OnePurchase purchase={purchase} key={purchase.id} />
+						)
+					})}
+				</div>
 			</div>
-
-			<div className='w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto'>
-				<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>Все операции:</h2>
-				{purchases.map((purchase) => {
-
-					return (
-						<OnePurchase purchase={purchase} key={purchase.id} />
-					)
-				})}
-			</div>
-
 			<Footer />
 		</>
 	);

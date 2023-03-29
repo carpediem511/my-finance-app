@@ -41,21 +41,21 @@ const ExpensesForm = () => {
 	return (
 		<>
 
-			<form className="w-1/5 px-4 my-1">
-				<div className="my-10 flex flex-col gap-y-4 w-full bg-slate-200 rounded">
+			<form className="w-1/4 px-4 my-1">
+				<div className="my-8 flex flex-col gap-y-4 w-full bg-slate-200 rounded-lg shadow-md">
 					<h2 className="text-4xl pt-8 pb-8 text-center font-['Caveat']">
-						Ваши траты по категориям
+						Добавить новую покупку
 					</h2>
 
 					<div className="px-4">
 						<div className="flex flex-col text-lg font-medium">
-							<label className="font-semibold">Категория</label>
+							<label className="font-semibold">Выбрать категорию</label>
 							<Select
 								options={categories}
 								onChange={(event) =>
 									setChooseCategory(event.target.value)
 								}
-								className="mt-1 py-2 focus:border-2 rounded-md"
+								className="mt-3 py-3 focus:border-2 rounded-md"
 							>
 
 								{categories.map((category) => (
@@ -64,13 +64,13 @@ const ExpensesForm = () => {
 							</Select>
 						</div>
 						<div className="flex flex-col text-lg font-medium">
-							<label className="font-semibold">Месяц покупки</label>
+							<label className="font-semibold mt-4 mb-1">Выбрать месяц покупки</label>
 							<Select
 								options={months}
 								onChange={(event) =>
 									setChooseMonth(event.target.value)
 								}
-								className="mt-1 py-2 focus:border-2 rounded-md"
+								className="mt-1 py-3 focus:border-2 rounded-md"
 							>
 								{months.map((month) => (
 									<option key={month}>{month}</option>
@@ -80,7 +80,7 @@ const ExpensesForm = () => {
 
 
 						<div className="mb-1 flex flex-col text-lg font-medium w-full">
-							<label className="font-semibold">Ввести сумму</label>
+							<label className="font-semibold mb-1 mt-4">Ввести потраченную сумму</label>
 							<input
 								name="enterAmount"
 								value={enterAmount}
@@ -88,7 +88,7 @@ const ExpensesForm = () => {
 									setEnterAmount(event.target.value)
 								}
 								type="text"
-								className="border mt-1 mb-8 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 w-1/2 focus:border-sky-500"
+								className="border mt-1 mb-10 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 w-1/2 focus:border-sky-500"
 							/>
 						</div>
 					</div>
