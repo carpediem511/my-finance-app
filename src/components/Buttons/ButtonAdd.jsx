@@ -1,4 +1,4 @@
-function ButtonAdd({ title, addNewSpending, AddPurchaseFunction, type }) {
+function ButtonAdd({ title, AddPurchaseFunction, type }) {
 	return (
 		<button
 			onClick={(event) => AddPurchaseFunction(event)}

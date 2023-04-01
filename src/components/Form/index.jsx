@@ -1,21 +1,10 @@
 import ButtonAdd from "components/Buttons/ButtonAdd"
 import { useState } from "react"
 import Select from 'react-select'
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+import uuid4 from "uuid4"
 
-const months = [
-	{ value: 'january', label: 'Январь' },
-	{ value: 'february', label: 'Февраль' },
-	{ value: 'march', label: 'Март' },
-	{ value: 'april', label: 'Апрель' },
-	{ value: 'may', label: 'Май' },
-	{ value: 'june', label: 'Июнь' },
-	{ value: 'july', label: 'Июль' },
-	{ value: 'august', label: 'Август' },
-	{ value: 'september', label: 'Сентябрь' },
-	{ value: 'october', label: 'Октябрь' },
-	{ value: 'november', label: 'Ноябрь' },
-	{ value: 'december', label: 'Декабрь' }
-]
 
 const categories = [
 	{ value: 'health', label: 'Здоровье' },
@@ -28,9 +17,8 @@ const categories = [
 
 const ExpensesForm = ({ addNewSpending }) => {
 	const [enterAmount, setEnterAmount] = useState("")
-
 	const [chooseCategory, setChooseCategory] = useState(categories[0])
-	const [chooseMonth, setChooseMonth] = useState(months[0])
+	const [startDate, setStartDate] = useState();
 
 	const AddPurchaseFunction = event => {
 
@@ -38,12 +26,14 @@ const ExpensesForm = ({ addNewSpending }) => {
 
 		const purchase = {
 			chooseCategory,
-			chooseMonth,
-			enterAmount
-
-
+			enterAmount,
+			date: startDate,
+			id: uuid4()
 		}
 		addNewSpending(purchase)
+		setChooseCategory(categories[0])
+		setEnterAmount("")
+		setStartDate()
 	}
 
 	return (
@@ -61,8 +51,8 @@ const ExpensesForm = ({ addNewSpending }) => {
 							<Select
 								options={categories}
 								value={chooseCategory}
-								onChange={(event) =>
-									setChooseCategory(event.target.value)
+								onChange={(category) =>
+									setChooseCategory(category)
 								}
 								className="mt-3 py-3 focus:border-2 rounded-md"
 							>
@@ -74,18 +64,13 @@ const ExpensesForm = ({ addNewSpending }) => {
 						</div>
 						<div className="flex flex-col text-lg font-medium">
 							<label className="font-semibold mt-4 mb-1">Выбрать месяц покупки</label>
-							<Select
-								options={months}
-								value={chooseMonth}
-								onChange={(event) =>
-									setChooseMonth(event.target.value)
-								}
-								className="mt-1 py-3 focus:border-2 rounded-md"
-							>
-								{months.map((month) => (
-									<option key={month}>{month}</option>
-								))}
-							</Select>
+							<DatePicker
+								selected={startDate}
+								onChange={(date) => setStartDate(date)}
+								isClearable
+								placeholderText="	Пока здесь пусто"
+
+							/>
 						</div>
 
 
