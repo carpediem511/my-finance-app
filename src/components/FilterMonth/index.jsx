@@ -1,24 +1,27 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import ButtonMonth from 'components/Buttons/ButtonMonth'
+import uuid4 from 'uuid4'
 //шаблон для отображения месяцев
 const months = [
-	{ name: "Январь" },
-	{ name: "Февраль" },
-	{ name: "Март" },
-	{ name: "Апрель" },
-	{ name: "Май" },
-	{ name: "Июнь" },
-	{ name: "Июль" },
-	{ name: "Август" },
-	{ name: "Сентябрь" },
-	{ name: "Октябрь" },
-	{ name: "Ноябрь" },
-	{ name: "Декабрь" },
+	{ name: "Январь", id: uuid4() },
+	{ name: "Февраль", id: uuid4() },
+	{ name: "Март", id: uuid4() },
+	{ name: "Апрель", id: uuid4() },
+	{ name: "Май", id: uuid4() },
+	{ name: "Июнь", id: uuid4() },
+	{ name: "Июль", id: uuid4() },
+	{ name: "Август", id: uuid4() },
+	{ name: "Сентябрь", id: uuid4() },
+	{ name: "Октябрь", id: uuid4() },
+	{ name: "Ноябрь", id: uuid4() },
+	{ name: "Декабрь", id: uuid4() },
 ]
 
 const MonthlyFilterTemplate = () => {
+
 	const [chooseMonth, setChooseMonth] = useState(months[0])
+
 
 
 	return (
@@ -29,7 +32,7 @@ const MonthlyFilterTemplate = () => {
 					<div className="flex w-1/3 justify-evenly flex-wrap mx-auto">
 						{months.map((month) => (
 							<RadioGroup.Option
-								key={month.name}
+								key={month.id}
 								value={month}
 								className={({ active, checked }) =>
 									`${active
@@ -70,7 +73,7 @@ const MonthlyFilterTemplate = () => {
 				</RadioGroup>
 			</div>
 
-			<ButtonMonth title="Подтвердить" />
+			<ButtonMonth title="Подтвердить" months={months} />
 		</div>
 	)
 }
