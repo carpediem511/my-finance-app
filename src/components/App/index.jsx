@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import RecentPurchases from "components/RecentPurchases";
 import Footer from "components/Footer";
 import ExpensesForm from "components/Form";
-import RenderMonths from "components/FilterMonth";
+import RenderMonths from "components/RenderMonths";
 
 
 function App() {
@@ -51,6 +51,48 @@ function App() {
 			category: "Развлечения",
 			image: "icon-entertainment.png",
 			price: 3700,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 10, 11),
+			category: "Здоровье",
+			image: "icon-helth.png",
+			price: 22678,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 11, 25),
+			category: "Накопления",
+			image: "icon-finance.png",
+			price: 50000,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 8, 10),
+			category: "Образование",
+			image: "icon-education.png",
+			price: 21234,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 9, 5),
+			category: "Продукты",
+			image: "icon-groceries.png",
+			price: 21609,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 10, 5),
+			category: "Продукты",
+			image: "icon-groceries.png",
+			price: 17458,
+		},
+		{
+			id: uuidv4(),
+			date: new Date(2023, 11, 11),
+			category: "Развлечения",
+			image: "icon-entertainment.png",
+			price: 7700,
 		},
 	]);
 

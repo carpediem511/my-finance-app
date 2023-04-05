@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import uuid4 from 'uuid4'
-//реализация функции - фильтр по месяцам
+//шаблон для отображения месяцев
 const months = [
 	{ name: "Январь", id: uuid4() },
 	{ name: "Февраль", id: uuid4() },
