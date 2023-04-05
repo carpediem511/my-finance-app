@@ -17,7 +17,7 @@ const months = [
 	{ name: "Декабрь", id: uuid4() },
 ]
 
-const FilterByMonths = () => {
+const RenderMonths = () => {
 
 	const [chooseMonth, setChooseMonth] = useState(months[0])
 
@@ -93,4 +93,4 @@ function CheckIcon(props) {
 	)
 }
 
-export default FilterByMonths
+export default RenderMonths
