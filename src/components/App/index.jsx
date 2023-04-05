@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import RecentPurchases from "components/RecentPurchases";
 import Footer from "components/Footer";
 import ExpensesForm from "components/Form";
-import FilterByMonths from "components/FilterMonth/FilterByMonths";
+import FilterByMonths from "components/FilterMonth";
+
 
 function App() {
 	const [purchases, setPurchases] = useState([

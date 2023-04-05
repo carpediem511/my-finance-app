@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import uuid4 from 'uuid4'
-//шаблон для отображения месяцев
+//реализация функции - фильтр по месяцам
 const months = [
 	{ name: "Январь", id: uuid4() },
 	{ name: "Февраль", id: uuid4() },
@@ -75,7 +75,7 @@ const FilterByMonths = () => {
 
 		</div>
 	)
-}
+};
 
 
 function CheckIcon(props) {
