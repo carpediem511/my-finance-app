@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
-import ButtonMonth from 'components/Buttons/ButtonMonth'
 import uuid4 from 'uuid4'
 //шаблон для отображения месяцев
 const months = [
@@ -18,7 +17,7 @@ const months = [
 	{ name: "Декабрь", id: uuid4() },
 ]
 
-const MonthlyFilterTemplate = () => {
+const FilterByMonths = () => {
 
 	const [chooseMonth, setChooseMonth] = useState(months[0])
 
@@ -73,7 +72,7 @@ const MonthlyFilterTemplate = () => {
 				</RadioGroup>
 			</div>
 
-			<ButtonMonth title="Подтвердить" months={months} />
+
 		</div>
 	)
 }
@@ -94,4 +93,4 @@ function CheckIcon(props) {
 	)
 }
 
-export default MonthlyFilterTemplate
+export default FilterByMonths
