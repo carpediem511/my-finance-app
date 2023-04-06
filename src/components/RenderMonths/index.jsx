@@ -3,18 +3,18 @@ import { RadioGroup } from '@headlessui/react'
 import uuid4 from 'uuid4'
 //шаблон для отображения месяцев
 const months = [
-	{ name: "Январь", id: uuid4() },
-	{ name: "Февраль", id: uuid4() },
-	{ name: "Март", id: uuid4() },
-	{ name: "Апрель", id: uuid4() },
-	{ name: "Май", id: uuid4() },
-	{ name: "Июнь", id: uuid4() },
-	{ name: "Июль", id: uuid4() },
-	{ name: "Август", id: uuid4() },
-	{ name: "Сентябрь", id: uuid4() },
-	{ name: "Октябрь", id: uuid4() },
-	{ name: "Ноябрь", id: uuid4() },
-	{ name: "Декабрь", id: uuid4() },
+	{ name: "Январь", id: uuid4(), status: false },
+	{ name: "Февраль", id: uuid4(), status: false },
+	{ name: "Март", id: uuid4(), status: false },
+	{ name: "Апрель", id: uuid4(), status: false },
+	{ name: "Май", id: uuid4(), status: false },
+	{ name: "Июнь", id: uuid4(), status: false },
+	{ name: "Июль", id: uuid4(), status: false },
+	{ name: "Август", id: uuid4(), status: false },
+	{ name: "Сентябрь", id: uuid4(), status: false },
+	{ name: "Октябрь", id: uuid4(), status: false },
+	{ name: "Ноябрь", id: uuid4(), status: false },
+	{ name: "Декабрь", id: uuid4(), status: false },
 ]
 
 const RenderMonths = () => {

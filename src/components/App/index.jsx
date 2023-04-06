@@ -117,7 +117,7 @@ function App() {
 						Последние операции:
 					</h2>
 					{purchases.map((purchase) => {
-						return <RecentPurchases purchase={purchase} key={purchase.id} />;
+						return <RecentPurchases purchase={purchase} purchases={purchases} key={purchase.id} />;
 					})}
 				</div>
 			</div>
