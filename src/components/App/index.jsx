@@ -6,6 +6,8 @@ import RecentPurchases from "components/RecentPurchases";
 import Footer from "components/Footer";
 import ExpensesForm from "components/Form";
 import RenderMonths from "components/RenderMonths";
+/*import Test from "components/Data";
+import { ErrorBoundary } from 'react-error-boundary';*/
 
 
 function App() {
@@ -100,7 +102,7 @@ function App() {
 		setPurchases([...purchases, purchase]);
 	};
 
-	const [chooseMonth, setChooseMonth] = useState()
+
 
 	return (
 		<>
@@ -119,14 +121,77 @@ function App() {
 						Последние операции:
 					</h2>
 					{purchases.map((purchase) => {
-						return <RecentPurchases chooseMonth={chooseMonth} setChooseMonth={setChooseMonth} purchase={purchase} purchases={purchases} key={purchase.id} />;
+						return <RecentPurchases purchase={purchase} purchases={purchases} key={purchase.id} />;
 					})}
 				</div>
 			</div>
 			<RenderMonths />
+			{/*<ErrorBoundary>
+				{purchases.map((purchase) => {
+					<Test purchases={purchases} purchase={purchase} />
+				})}
+			</ErrorBoundary>*/}
 			<Footer />
 		</>
 	);
 }
 
 export default App;
+
+
+/*import { format } from "date-fns";
+import { ru } from "date-fns/locale";
+import { useState, useEffect } from "react";
+
+async function getData() {
+	const response = await fetch("https://642ee23f2b883abc64198889.mockapi.io/purchases");
+	const data = await response.json();
+	return data;
+}
+
+const Test = ({ purchase }) => {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const result = await getData();
+				setData(result);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+		fetchData();
+	}, []);
+
+	if (!data) {
+		return <div>Loading...</div>;
+	}
+
+	return (
+		<div className="flex flex-col bg-indigo-100 mb-2 rounded-md font-'Source Sans Pro'">
+			<div className="flex">
+				<img
+					src={`./images/${purchase.image}`}
+					className="w-6 h-6 rounded-md mt-5 mx-1.5"
+					alt=""
+				/>
+				<div className="text-xl w-full mt-4 pt-1 font-semibold">
+					{purchase.category}
+				</div>
+				<div className="w-full text-end py-2 pr-4 font-'Source Sans Pro'">
+					<div className="font-bold">
+						{format(new Date(purchase.date), "dd MMMM y", { locale: ru })}
+					</div>
+					<div className="text-md text-2xl text-indigo-600 font-semibold">
+						-{purchase.price} руб.
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default Test;
+*/
+
