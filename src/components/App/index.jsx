@@ -100,6 +100,8 @@ function App() {
 		setPurchases([...purchases, purchase]);
 	};
 
+	const [chooseMonth, setChooseMonth] = useState()
+
 	return (
 		<>
 			<Header />
@@ -117,7 +119,7 @@ function App() {
 						Последние операции:
 					</h2>
 					{purchases.map((purchase) => {
-						return <RecentPurchases purchase={purchase} purchases={purchases} key={purchase.id} />;
+						return <RecentPurchases chooseMonth={chooseMonth} setChooseMonth={setChooseMonth} purchase={purchase} purchases={purchases} key={purchase.id} />;
 					})}
 				</div>
 			</div>

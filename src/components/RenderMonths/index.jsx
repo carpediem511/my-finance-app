@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import uuid4 from 'uuid4'
 //шаблон для отображения месяцев
@@ -17,9 +16,7 @@ const months = [
 	{ name: "Декабрь", id: uuid4(), status: false },
 ]
 
-const RenderMonths = () => {
-
-	const [chooseMonth, setChooseMonth] = useState(months[0])
+const RenderMonths = ({ chooseMonth, setChooseMonth }) => {
 
 
 
