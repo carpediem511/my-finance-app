@@ -1,5 +1,7 @@
 import { RadioGroup } from '@headlessui/react';
 import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 //  компонент для отображения списка месяцев и фильтрации по выбранному месяцу
 const months = [
@@ -85,11 +87,11 @@ const FilteredMonths = () => {
 					<h2 className="text-xl font-bold">{selectedMonth}</h2>
 					{items.map((item) => (
 						<div key={item.id} className="mt-4">
-							<p>{item.date}</p>
+							<p>{format(new Date(item.date), "dd MMMM y", { locale: ru })}</p>
 							<p>{item.image}</p>
 							<p>{item.category}</p>
 							<p>{item.name}</p>
-							<p>{item.price}</p>
+							<p>{item.price} рублей</p>
 						</div>
 					))}
 				</div>
