@@ -26,7 +26,7 @@ const FilteredMonths = () => {
 
 	useEffect(() => {
 		if (selectedMonth) {
-			fetch(`https://642ee23f2b883abc64198889.mockapi.io/purchases?month=${selectedMonth.id}`)
+			fetch(`https://642ee23f2b883abc64198889.mockapi.io/purchases?month=${selectedMonth}`)
 				.then(response => response.json())
 				.then(data => setItems(data))
 				.catch(error => console.log(error));
