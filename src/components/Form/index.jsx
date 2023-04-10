@@ -48,28 +48,28 @@ const ExpensesForm = ({ addNewSpending }) => {
 
 	return (
 		<>
-			<form onSubmit={AddPurchaseFunction} className="w-1/4 px-4 my-1">
-				<div className="my-8 flex flex-col gap-y-4 w-full bg-slate-200 rounded-lg shadow-md">
-					<h2 className="text-4xl pt-8 pb-8 text-center font-['Caveat']">
+			<form onSubmit={AddPurchaseFunction} className="w-full px-4 my-1 mx-auto">
+				<div className="my-8 flex flex-col gap-y-4">
+					<h2 className="text-4xl pt-4 pb-8 text-center font-['Caveat']">
 						Добавить новую покупку
 					</h2>
 
-					<div className="px-4">
-						<div className="flex flex-col text-lg font-medium">
-							<label className="font-semibold">Выбрать категорию</label>
+					<div className="px-4 flex justify-around">
+						<div className="flex flex-col text-lg font-medium w-1/3">
+							<label className="font-semibold text-center text-indigo-600">Выбрать категорию</label>
 							<Select
 								options={categories}
 								value={chooseCategory}
 								onChange={(category) => setChooseCategory(category)}
-								className="mt-3 py-3 focus:border-2 rounded-md"
+								className="mt-3 mx-auto py-3 w-2/3 focus:border-2 rounded-md"
 							>
 								{categories.map((category) => (
 									<option key={category}>{category}</option>
 								))}
 							</Select>
 						</div>
-						<div className="flex flex-col text-lg font-medium">
-							<label className="font-semibold mt-4 mb-1">
+						<div className="flex flex-col text-lg font-medium w-1/3">
+							<label className="font-semibold mt-4 mb-1 text-center text-indigo-600">
 								Выбрать месяц покупки
 							</label>
 							<DatePicker
@@ -79,12 +79,12 @@ const ExpensesForm = ({ addNewSpending }) => {
 								dateFormat="dd.MM.yyyy"
 								isClearable
 								placeholderText="	Пока здесь пусто"
-								className="border mt-1 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 focus:border-sky-500"
+								className="border flex mx-auto mt-1 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 focus:border-sky-500"
 							/>
 						</div>
 
-						<div className="mb-1 flex flex-col text-lg font-medium w-full">
-							<label className="font-semibold mb-1 mt-4">
+						<div className="mb-1 flex flex-col text-lg font-medium w-1/3">
+							<label className="font-semibold mb-1 mt-4 text-center text-indigo-600">
 								Ввести потраченную сумму
 							</label>
 							<input
@@ -99,7 +99,7 @@ const ExpensesForm = ({ addNewSpending }) => {
 									}
 								}}
 								type="text"
-								className="border mt-1 border-solid rounded-md outline-none border-gray-300 px-2 py-2 focus:border-2 w-1/2 focus:border-sky-500"
+								className="border pl-2 mt-1 border-solid rounded-md outline-none border-gray-300 mx-auto py-2 focus:border-2 focus:border-sky-500"
 							/>
 						</div>
 					</div>
