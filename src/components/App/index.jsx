@@ -6,8 +6,8 @@ import RecentPurchases from "components/RecentPurchases";
 import Footer from "components/Footer";
 import ExpensesForm from "components/Form";
 import FilteredMonths from "components/FilteredMonths";
-/*import Test from "components/Data";
-import { ErrorBoundary } from 'react-error-boundary';*/
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 
 function App() {
@@ -65,28 +65,43 @@ function App() {
 
 	return (
 		<>
-			<Header />
-			<div className="flex mt-20">
-				<h1 className="w-1/2 pl-28 pt-48 font-['Caveat'] text-8xl text-indigo-700 justify-center">
-					Деньги работают на Вас вместе с нами!
-				</h1>
-				<img src="./images/hero.png" className="w-1/2" alt="" />
-			</div>
-			<div className="flex justify-evenly px-28 mt-20 bg-amber-100">
-				<ExpensesForm addNewSpending={addNewSpending} />
+			<BrowserRouter>
 
-				<div className="w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto scroll-style shadow-md">
-					<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>
-						Последние операции:
-					</h2>
-					{purchases.map((purchase) => {
-						return <RecentPurchases purchase={purchase} purchases={purchases} key={purchase.id} />;
-					})}
-				</div>
-			</div>
-			<FilteredMonths />
+				<Header />
 
-			<Footer />
+				<Routes>
+					<Route path="/" element={
+
+						<div className="flex mt-20">
+
+							<h1 className="w-1/2 pl-28 pt-48 font-['Caveat'] text-8xl text-indigo-700 justify-center">
+								Деньги работают на Вас вместе с нами!
+							</h1>
+							<img src="./images/hero.png" className="w-1/2" alt="" />
+						</div>} />
+
+					<Route path="/recentExpenses" element={
+						<div className="flex justify-evenly px-28 mt-20">
+							<ExpensesForm addNewSpending={addNewSpending} />
+
+							<div className="w-1/3 bg-indigo-200 rounded-xl px-4 my-10 pb-8 overflow-auto scroll-style shadow-md">
+								<h2 className='text-center font-["Caveat"] text-4xl pt-8 pb-8 '>
+									Последние операции:
+								</h2>
+								{purchases.map((purchase) => {
+									return <RecentPurchases purchase={purchase} purchases={purchases} key={purchase.id} />;
+								})}
+							</div>
+						</div>
+					} />
+
+					<Route path="/expensesByMonth" element={<FilteredMonths />} />
+
+				</Routes>
+
+				<Footer />
+
+			</BrowserRouter>
 		</>
 	);
 }
