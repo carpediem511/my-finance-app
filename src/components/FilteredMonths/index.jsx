@@ -5,18 +5,18 @@ import { ru } from 'date-fns/locale';
 
 //  компонент для отображения списка месяцев и фильтрации по выбранному месяцу
 const months = [
-	{ name: "Январь", id: 1 },
-	{ name: "Февраль", id: 2 },
-	{ name: "Март", id: 3 },
-	{ name: "Апрель", id: 4 },
-	{ name: "Май", id: 5 },
-	{ name: "Июнь", id: 6 },
-	{ name: "Июль", id: 7 },
-	{ name: "Август", id: 8 },
-	{ name: "Сентябрь", id: 9 },
-	{ name: "Октябрь", id: 10 },
-	{ name: "Ноябрь", id: 11 },
-	{ name: "Декабрь", id: 12 },
+	{ name: "Январь", id: 0 },
+	{ name: "Февраль", id: 1 },
+	{ name: "Март", id: 2 },
+	{ name: "Апрель", id: 3 },
+	{ name: "Май", id: 4 },
+	{ name: "Июнь", id: 5 },
+	{ name: "Июль", id: 6 },
+	{ name: "Август", id: 7 },
+	{ name: "Сентябрь", id: 8 },
+	{ name: "Октябрь", id: 9 },
+	{ name: "Ноябрь", id: 10 },
+	{ name: "Декабрь", id: 11 },
 
 ];
 
@@ -82,12 +82,17 @@ const FilteredMonths = () => {
 				</div>
 			</RadioGroup>
 
-			{selectedMonth && items.length > 0 && (
+			{selectedMonth && (
 				<div className="mt-8">
-					<h2 className="text-xl text-center text-indigo-600 font-bold">Вы выбрали: "{selectedMonth}"</h2>
-					{items.map((item) => (
+					<h2 className="text-xl text-center text-indigo-600 font-bold">
+						Вы выбрали: "{selectedMonth}"
+					</h2>
+					{items.filter(item => {
+						const selectedMonthId = months.find(m => m.name === selectedMonth).id
+						const currentMonthId = new Date(item.date).getMonth()
+						return currentMonthId === selectedMonthId
+					}).map((item) => (
 						<div key={item.id} className="mt-4 w-1/3 mx-auto flex flex-col bg-indigo-100 mb-2 rounded-md font-['Source Sans Pro']">
-
 							<div className="flex">
 								<img
 									src={`./images/${item.image}`}
@@ -107,8 +112,16 @@ const FilteredMonths = () => {
 								</div>
 							</div>
 						</div>
-
 					))}
+					{items.filter(item => {
+						const selectedMonthId = months.find(m => m.name === selectedMonth).id
+						const currentMonthId = new Date(item.date).getMonth()
+						return currentMonthId === selectedMonthId
+					}).length === 0 && (
+							<div className="text-center mt-8 text-gray-500">
+								В выбранном месяце не было трат.
+							</div>
+						)}
 				</div>
 			)}
 		</div>
