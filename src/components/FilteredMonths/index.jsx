@@ -25,7 +25,6 @@ const FilteredMonths = () => {
 	const [selectedMonth, setSelectedMonth] = useState(null);
 	const [items, setItems] = useState([])
 
-
 	useEffect(() => {
 		if (selectedMonth) {
 			fetch(`https://642ee23f2b883abc64198889.mockapi.io/purchases?month=${selectedMonth}`)
@@ -36,6 +35,7 @@ const FilteredMonths = () => {
 			setItems([]);
 		}
 	}, [selectedMonth]);
+
 
 	return (
 		<div className="w-full px-4 py-16">

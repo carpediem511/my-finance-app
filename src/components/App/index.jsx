@@ -7,6 +7,7 @@ import Footer from "components/Footer";
 import ExpensesForm from "components/Form";
 import FilteredMonths from "components/FilteredMonths";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FilteredCategories from "components/FilteredCategories";
 
 
 
@@ -96,7 +97,7 @@ function App() {
 					} />
 
 					<Route path="/expensesByMonth" element={<FilteredMonths />} />
-
+					<Route path="/expensesByCategories" element={<FilteredCategories />} />
 				</Routes>
 
 				<Footer />
