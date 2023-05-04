@@ -69,8 +69,8 @@ function App() {
 					<Route
 						path="/"
 						element={
-							<div className="flex mt-20">
-								<h1 className="w-1/2 pl-28 pt-48 font-['Caveat'] text-8xl text-indigo-700 justify-center">
+							<div className="flex mt-10">
+								<h1 className="w-1/2 pl-28 pt-10 font-['Caveat'] text-8xl text-indigo-700 justify-center">
 									Деньги работают на Вас вместе с нами!
 								</h1>
 								<img src="./images/hero.png" className="w-1/2" alt="" />
