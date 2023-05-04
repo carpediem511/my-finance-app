@@ -1,6 +1,8 @@
 import { RadioGroup } from "@headlessui/react";
 import { useState, useEffect } from "react";
 import Card from "components/Card";
+import { orderBy } from "lodash";
+import { ArrowLongUpIcon, ArrowLongDownIcon } from '@heroicons/react/24/solid'
 
 //  компонент для отображения списка месяцев и фильтрации по выбранному месяцу
 const months = [
@@ -36,8 +38,19 @@ const FilteredMonths = () => {
 		}
 	}, [selectedMonth]);
 
+	const sortAscending = () => {
+		const sorted = orderBy(items, [(item) => new Date(item.date)]);
+		setItems(sorted);
+	};
+
+	const sortDescending = () => {
+		const sorted = orderBy(items, [(item) => new Date(item.date)], ["desc"]);
+		setItems(sorted);
+	};
+
 	return (
 		<div className="w-full px-4 py-16">
+
 			{/* компонент для отображения списка месяцев */}
 			<RadioGroup value={selectedMonth} onChange={setSelectedMonth}>
 				<RadioGroup.Label className="sr-only">Выбрать месяц</RadioGroup.Label>
@@ -85,7 +98,20 @@ const FilteredMonths = () => {
 					))}
 				</div>
 			</RadioGroup>
-
+			<div className="flex justify-center gap-2 mb-4">
+				<button
+					className="px-4 flex py-2 font-medium text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none"
+					onClick={sortAscending}
+				>
+					Сортировать по дате <ArrowLongUpIcon className="w-6 h-6" />
+				</button>
+				<button
+					className="px-4 flex py-2 font-medium text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none"
+					onClick={sortDescending}
+				>
+					Сортировать по дате <ArrowLongDownIcon className="w-6 h-6" />
+				</button>
+			</div>
 			{selectedMonth && (
 				<div className="mt-8">
 					<h2 className="text-xl text-center text-indigo-600 font-bold">

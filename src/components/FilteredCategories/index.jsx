@@ -46,6 +46,7 @@ function FilteredCategories() {
 		},
 	];
 
+
 	return (
 		<>
 			<Tab.Group>

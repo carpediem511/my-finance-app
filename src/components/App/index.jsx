@@ -8,6 +8,7 @@ import ExpensesForm from "components/Form";
 import FilteredMonths from "components/FilteredMonths";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FilteredCategories from "components/FilteredCategories";
+import { sortBy } from "lodash";
 
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
 	const addNewSpending = (purchase) => {
 		setPurchases([...purchases, purchase]);
 	};
+
+	const sort = sortBy([...purchases], ['date']);
 
 	return (
 		<>
